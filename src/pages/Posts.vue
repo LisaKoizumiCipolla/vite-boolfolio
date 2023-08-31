@@ -1,18 +1,64 @@
 <template>
-    <div>
+    <div class="post-wrapper">
         <h1>
             Posts
         </h1>
-        <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Non possimus nihil ipsa quia neque accusamus, deleniti omnis velit fuga, aspernatur quisquam reprehenderit odio tempora? Totam culpa ex quod cum illum!
-        </p>
+
+        <div class="posts">
+            
+            <SinglePost class="post-card" v-for="post in posts" :post='post' />
+
+        </div>
     </div>
 </template>
 <script>
+import axios from 'axios';
+
+import SinglePost from '../components/SinglePost.vue';
+
 export default {
     
+    name:'Posts',
+    
+    components: {
+        SinglePost
+    },
+
+    data() {
+        return {
+            posts: [],
+            apiUrl: 'http://127.0.0.1:8000/api/posts'
+        };
+    },
+    
+    methods: {
+        getPosts() {
+            axios.get(this.apiUrl, {
+                params: {}
+            })
+                .then((response) => {
+                console.log(response.data.results.data);
+                this.posts = response.data.results.data;
+            })
+                .catch(function (error) {
+                console.log(error);
+            })
+                .finally(function () {
+            });
+        }
+    },
+
+    created() {
+        this.getPosts();
+    }
 }
 </script>
 <style lang="scss" scoped>
-    
+    .posts{
+        display: flex;
+        //align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
 </style>

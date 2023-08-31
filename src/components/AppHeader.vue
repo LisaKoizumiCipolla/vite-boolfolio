@@ -2,14 +2,10 @@
     
         <nav>
             <ul>
-                <li>
-                    <router-link :to="{ name: 'homepage' }" >Home</router-link> 
-                </li>
-                <li>
-                    <router-link :to="{ name: 'about' }" >About Us</router-link> 
-                </li>
-                <li>
-                    <router-link :to="{ name: 'posts.index' }" >Posts</router-link> 
+                <li v-for="link in links">
+                    <router-link :to=" {name: link.route} ">
+                        {{ link.name }}
+                    </router-link> 
                 </li>
             </ul>
         </nav>
@@ -19,7 +15,26 @@
 <script>
 export default{
     
-    name: 'AppHeader'
+    name: 'AppHeader',
+    data() {
+        return {
+            links : [
+                {
+                    route: 'homepage',
+                    name: 'Homepage'
+                },
+                {
+                    route: 'about',
+                    name: 'About Us'
+                },
+                {
+                    route: 'posts.index',
+                    name: 'Posts'
+                }
+
+            ]
+        }
+    },
 
 }
 
@@ -37,6 +52,10 @@ export default{
         padding: 20px 0;
         background-color: rgb(9, 9, 48);
         color: white;
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
 
 
             ul{
@@ -47,7 +66,7 @@ export default{
                 font-size: 2rem;
 
                 li{
-                    margin-right: 10px;
+                    margin-right: 50px;
                     font-weight: 900;
 
                     a{

@@ -8,15 +8,17 @@
         </p>
     </div>
 </template>
+
 <script>
 export default {
-    
+    name: 'HomePage',
 }
 </script>
+
 <style lang="scss" scoped>
     
         h1{
-            margin-bottom: 20px;
+            padding-bottom: 20px;
         }
     
 </style>
