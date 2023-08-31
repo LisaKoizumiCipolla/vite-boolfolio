@@ -1,14 +1,14 @@
 <script>
 
 import AppHeader from './components/AppHeader.vue';
-import AppMain from './components/AppMain.vue';
+//import AppMain from './components/AppMain.vue';
 import AppFooter from './components/AppFooter.vue';
 
 export default{
   name : 'App',
   components:{
     AppHeader,
-    AppMain,
+    //AppMain,
     AppFooter
   }
 }
@@ -22,7 +22,8 @@ export default{
     </header>
 
     <main>
-      <AppMain/>
+      <router-view>
+      </router-view>
     </main>
 
     <footer>
@@ -48,6 +49,8 @@ export default{
   }
 
   main{
-    width: 100%;
+    margin: 0 auto;
+    width: 90%;
+    margin-top: 30px;
   }
 </style>
