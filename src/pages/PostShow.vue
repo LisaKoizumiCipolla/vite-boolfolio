@@ -1,8 +1,11 @@
 <template>
 
-<SinglePost class="post-card" v-if="post" :post='post' />
+    <div class="card-wrapper">
+        <SinglePost v-if="post" class="post-card" :post='post' />
+    </div>
     
 </template>
+
 <script>
 import axios from 'axios';
 import SinglePost from '../components/SinglePost.vue';
@@ -10,10 +13,11 @@ import SinglePost from '../components/SinglePost.vue';
 export default {
 
     name: 'PostShow',
-    
+
     components:{
         SinglePost
     },
+
     data() {
         return {
             apiUrl: 'http://127.0.0.1:8000',
@@ -25,7 +29,7 @@ export default {
                 console.log(this.$route.params.id);
                 axios.get(`${this.apiUrl}/api/posts/${this.$route.params.id}`).then((response) => {
                     console.log(response);
-                    this.post = response.data.results;
+                    this.post = response.data.result;
                 }).catch(function (error) {
                     console.log(error);
                 });
@@ -35,17 +39,22 @@ export default {
 
     created(){
         this.getPost();
-    }
+    },
 }
 </script>
 <style lang="scss" scoped>
     
+    .card-wrapper{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
     .post-card{
         background-color: rgb(231, 221, 174);
         color: black;
         padding: 15px;
         margin: 15px 5px;
-        width: calc( (100% / 3) - 20px );
+        width: 500px;
         border-radius: 10px;
 
         *{

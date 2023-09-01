@@ -1,5 +1,5 @@
 <template>
-
+    
     <div class="post-card">
         <h2>
             <router-link :to="{name: 'posts.show', params: { id : post.id }}">
