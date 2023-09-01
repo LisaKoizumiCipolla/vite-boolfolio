@@ -52,10 +52,6 @@ export default{
         padding: 20px 0;
         background-color: rgb(9, 9, 48);
         color: white;
-        position: fixed;
-        top: 0;
-        right: 0;
-        left: 0;
 
 
             ul{
@@ -75,7 +71,7 @@ export default{
                     
                         &:hover{
                             cursor: pointer;
-                            color: #4accff;
+                        color: rgb(197, 223, 174);
                         }
                     }
                 }

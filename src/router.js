@@ -4,7 +4,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import HomePage from './pages/HomePage.vue';
 import AboutUs from './pages/AboutUs.vue';
 import Posts from './pages/Posts.vue';
-import PostShow from './pages/SinglePost.vue';
+import PostShow from './pages/PostShow.vue';
 
 
 const router = createRouter({
@@ -26,7 +26,7 @@ const router = createRouter({
             component : Posts,
         },
         {
-            path: '/posts/show',
+            path: '/posts/:id',
             name : 'posts.show',
             component : PostShow,
         },

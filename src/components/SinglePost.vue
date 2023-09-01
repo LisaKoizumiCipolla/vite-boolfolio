@@ -2,9 +2,11 @@
 
     <div class="post-card">
         <h2>
-            {{ post.title }}
+            <router-link :to="{name: 'posts.show', params: { id : post.id }}">
+                {{ post.title }}
+            </router-link>
         </h2>
-        <h4 :style="'color:' + post.type.colour + ';' ">
+        <h4 :style="'color:' + post.type.color + ';' ">
             Type: {{ post.type.name }}
         </h4>
         <h4>
